@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: expense-tracker-application-deployment
+  namespace: expense-tracker-ns
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: expense-tracker
+  template:
+    metadata:
+      labels:
+        app: expense-tracker
+    spec:
+      containers:
+      - name: expense-tracker
+        image: ritikumar38921/expense-tracker:2.0.0
+        ports:
+        - containerPort: 8080
+        envFrom:
+          - configMapRef:
+              name: expense-tracker-configmap
+

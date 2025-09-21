@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: postgresql-headless-svc
+  namespace: expense-tracker-ns
+spec:
+  type: ClusterIP
+  selector:
+    app: postgres
+  ports: 
+    - port: 5432
+      targetPort: 5432
+  clusterIP: None

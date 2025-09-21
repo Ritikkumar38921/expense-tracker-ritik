@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: expense-tracker-configmap
+  namespace: expense-tracker-ns
+data:
+  SPRING_DATASOURCE_URL: jdbc:postgresql://postgresql-headless-svc:5432/testDB
+  SPRING_DATASOURCE_USERNAME: postgres
+  SPRING_DATASOURCE_PASSWORD: root
